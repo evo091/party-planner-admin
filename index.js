@@ -66,7 +66,13 @@ async function addParty(party) {
   await getParties();
 }
 
-
+async function deleteParty(id) {
+  await fetch(API + "/events/" + id, {
+    method: 'DELETE',
+  });
+  selectedParty = null;
+  await getParties();
+}
 
 // === Components ===
 
@@ -113,8 +119,13 @@ function SelectedParty() {
     <address>${selectedParty.location}</address>
     <p>${selectedParty.description}</p>
     <GuestList></GuestList>
+    <button>Delete Party</button>
   `;
   $party.querySelector("GuestList").replaceWith(GuestList());
+
+  const $delete = $party.querySelector("button");
+  //console.log($delete);
+  $delete.addEventListener('click', () => deleteParty(selectedParty.id));
 
   return $party;
 }

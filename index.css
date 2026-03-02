@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0 1rem;
+  width: 100%
 }
 
 h1 {
@@ -47,9 +48,17 @@ main {
 form {
   display: grid;
   gap: 1ch;
-  padding: 0 1rem;
+  width: 100%;
 }
 
 label {
   display: grid;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 1ch;
+  text-decoration: none;
+  color: black;
 }
